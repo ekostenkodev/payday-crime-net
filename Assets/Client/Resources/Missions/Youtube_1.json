@@ -1,0 +1,10 @@
+{
+  "id": "1",
+  "name": "Youtube",
+  "author": "Egor",
+  "conditions": "forever / 3$",
+  "difficulty": 3,
+  "difficultyDescription": "Are you crazy?",
+  "experience" : "+ 0.0001%",
+  "duration": 7.1
+}

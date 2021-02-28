@@ -1,6 +1,11 @@
 ﻿using Newtonsoft.Json;
 
 namespace Kadoy.CrimeNet.Models.Missions {
+  public class InnerMissionBase {
+    [JsonProperty("missions")]
+    public InnerMissionInfo[] Missions { get; private set; }
+  }
+  
   public class InnerMissionInfo  {
     [JsonProperty("id")]
     public string Id { get; private set; }

@@ -54,8 +54,6 @@ namespace Kadoy.CrimeNet.Missions {
       experienceText.text = missionInfo.Experience.ToUpper();
 
       difficultyMarksParent.ActivateChildren(missionInfo.Difficulty);
-
-      GameObjects.Active(authorText, conditionsText, difficultyText, experienceText);
     }
 
     public void ShowDetailedInfo() {
@@ -63,8 +61,8 @@ namespace Kadoy.CrimeNet.Missions {
       sequence = DOTween.Sequence();
       
       GameObjects.Active(authorText, conditionsParent, difficultyTextParent, experienceParent);
-
-      sequence.Join(titleParent.DOLocalMoveX(authorText.bounds.size.x, InfoAppearanceDuration));
+      
+      sequence.Join(titleParent.DOLocalMoveX(authorText.bounds.size.x,  InfoAppearanceDuration));
       sequence.Join(conditionsParent.DOLocalMoveX(conditionsText.bounds.size.x, InfoAppearanceDuration));
       sequence.Join(difficultyTextParent.DOLocalMoveX(difficultyText.bounds.size.x, InfoAppearanceDuration));
       sequence.Join(experienceParent.DOLocalMoveX(experienceText.bounds.size.x, InfoAppearanceDuration));

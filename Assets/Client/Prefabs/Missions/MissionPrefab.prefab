@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4083000343591709964}
   - component: {fileID: 5899705246219774624}
   - component: {fileID: 3311705157936873076}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.96391106, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8482894024562266038}
   - component: {fileID: 9067688927481388730}
   - component: {fileID: 5700048093848103200}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.96391106, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 2594935453064972681}
   - component: {fileID: 7532911536133918365}
   - component: {fileID: 3966427348161253057}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.96391106, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 157103187012558790}
   - component: {fileID: 8596170108274818044}
   - component: {fileID: 4031915657361825274}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.96391106, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 479625767378791557}
   - component: {fileID: 7992280491798179415}
   - component: {fileID: 1422149209596896093}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.96391106, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678058188572653751}
   - component: {fileID: 7678058188572653750}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Conditions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678058188580285015}
   - component: {fileID: 7678058188580285014}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Difficulty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678058188700135780}
   - component: {fileID: 7678058188700135779}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Experience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 7678058189092720432}
   - component: {fileID: 7678058189092720446}
   - component: {fileID: 7678058189092720447}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 15}
   m_SizeDelta: {x: 26, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7678058189092720446
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 7678058189101506419}
   - component: {fileID: 7678058189101506417}
   - component: {fileID: 7678058189101506418}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 7678058189250247950}
   - component: {fileID: 7678058189250247951}
   - component: {fileID: 1010376122837464940}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: DifficultyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,9 +820,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7678058189252455747}
+  - component: {fileID: 8121858479522494231}
   - component: {fileID: 7678058189252455745}
   - component: {fileID: 7678058189252455746}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,6 +850,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 2.2}
   m_SizeDelta: {x: 23.87011, y: 23.87011}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8121858479522494231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678058189252455748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353e527ef4f700a47a49832ad807b239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerImage: {fileID: 7678058189101506418}
 --- !u!222 &7678058189252455745
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -896,10 +910,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7678058189368647742}
-  - component: {fileID: 8327284171003236662}
+  - component: {fileID: 582302958067219603}
   - component: {fileID: 7678058189368647740}
   - component: {fileID: 7678058189368647739}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +944,7 @@ RectTransform:
   m_AnchoredPosition: {x: 2, y: 1.5}
   m_SizeDelta: {x: 170, y: 60}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &8327284171003236662
+--- !u!114 &582302958067219603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -939,7 +953,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7678058189368647743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04db68602292c24a933fde713a88472, type: 3}
+  m_Script: {fileID: 11500000, guid: 674b225ea744a3f43aad953024f75465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   titleParent: {fileID: 7678058189678947063}
@@ -986,7 +1000,7 @@ GameObject:
   - component: {fileID: 7678058189565569680}
   - component: {fileID: 7678058189565569681}
   - component: {fileID: 3842699886511915651}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: ConditionsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1135,7 +1149,7 @@ GameObject:
   - component: {fileID: 7678058189647400301}
   - component: {fileID: 7678058189647400302}
   - component: {fileID: 1592938705995478794}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: ExperienceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,7 +1297,7 @@ GameObject:
   - component: {fileID: 7678058189665443864}
   - component: {fileID: 7678058189665443878}
   - component: {fileID: 7678058189665443879}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678058189678947063}
   - component: {fileID: 7678058189678947061}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: TitleGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678058189859708720}
   - component: {fileID: 7678058189859708735}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Skulls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,7 +1523,7 @@ GameObject:
   - component: {fileID: 7678058190120648282}
   - component: {fileID: 7678058190120648283}
   - component: {fileID: 7678058190120648284}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: AutorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1655,10 +1669,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7678058190343842696}
-  - component: {fileID: 5193970152562166187}
+  - component: {fileID: 882538356520732929}
   - component: {fileID: 7678058190343842711}
   - component: {fileID: 7678058190343842710}
-  m_Layer: 0
+  - component: {fileID: 7108015587360778287}
+  m_Layer: 4
   m_Name: MissionPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1682,10 +1697,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 98}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5193970152562166187
+--- !u!114 &882538356520732929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1694,10 +1709,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7678058190343842697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7abb689e63a40ae9ec630609c5859d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 433c4613bbdf86c448b78720932aaea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  informationBehaviour: {fileID: 8327284171003236662}
+  root: {fileID: 7678058190343842696}
+  interactableZone: {fileID: 7108015587360778287}
+  informationBehaviour: {fileID: 582302958067219603}
+  timerBehaviour: {fileID: 8121858479522494231}
 --- !u!222 &7678058190343842711
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1718,6 +1736,32 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!61 &7108015587360778287
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678058190343842697}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 35, y: 15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 45}
+  m_EdgeRadius: 0
 --- !u!1 &7759919011132065421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1773,7 @@ GameObject:
   - component: {fileID: 6986970373331540225}
   - component: {fileID: 6624324449426964899}
   - component: {fileID: 41192506173094}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1777,7 +1821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.96391106, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1803,7 +1847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7413615481953089648}
   - component: {fileID: 7644818928568650942}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: SkullsParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,8 +2,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Kadoy.CrimeNet.Missions {
-  public class MissionTimerBehaviour : MonoBehaviour {
+namespace Kadoy.CrimeNet.Missions.Bubble {
+  public interface IMissionTimer {
+    void Start();
+    void Stop();
+  }
+  
+  public class MissionBubbleTimerBehaviour : MonoBehaviour, IMissionTimer {
     [SerializeField]
     private Image timerImage;
 
@@ -29,8 +34,17 @@ namespace Kadoy.CrimeNet.Missions {
       }
     }
 
-    public void Initialize(float duration) {
+    public void Reset(float duration) {
       totalTime = leftTime = duration;
+
+      Start();
+    }
+
+    public void Stop() {
+      isInitialized = false;
+    }
+
+    public void Start() {
       isInitialized = true;
     }
   }

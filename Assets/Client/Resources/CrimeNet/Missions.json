@@ -1,114 +1,104 @@
 {
   "missions": [
     {
-      "id": "SubYoutube1",
-      "name": "Youtube",
+      "id": "1",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
-      "difficulty": 3,
+      "difficulty": 1,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "SubYoutube2",
-      "name": "Youtube",
+      "id": "2",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
       "difficulty": 3,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "SubYoutube3",
-      "name": "Youtube",
+      "id": "3",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
-      "difficulty": 3,
+      "difficulty": 5,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "SubYoutube4",
-      "name": "Youtube",
+      "id": "4",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
-      "difficulty": 3,
+      "difficulty": 6,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "SubYoutube5",
-      "name": "Youtube",
+      "id": "5",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
-      "difficulty": 3,
+      "difficulty": 2,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "SubYoutube6",
-      "name": "Youtube",
+      "id": "6",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
       "difficulty": 3,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "SubYoutube7",
-      "name": "Youtube",
+      "id": "7",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
       "difficulty": 3,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "EgorYoutube15",
-      "name": "Youtube",
+      "id": "8",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
-      "difficulty": 3,
+      "difficulty": 4,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "EgorYoutube15",
-      "name": "Youtube",
+      "id": "9",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
-      "difficulty": 3,
+      "difficulty": 2,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     },
     {
-      "id": "EgorYoutube15",
-      "name": "Youtube",
+      "id": "10",
+      "name": "The Big Bank",
       "author": "Kadoy",
       "conditions": "forever / 3$",
-      "difficulty": 3,
+      "difficulty": 1,
       "difficultyDescription": "Are you crazy?",
       "experience": "+ 0.0001%",
-      "duration": 15
-    },
-    {
-      "id": "EgorYoutube15",
-      "name": "Youtube",
-      "author": "Kadoy",
-      "conditions": "forever / 3$",
-      "difficulty": 3,
-      "difficultyDescription": "Are you crazy?",
-      "experience": "+ 0.0001%",
-      "duration": 15
+      "duration": 10
     }
   ]
 }

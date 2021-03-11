@@ -1,7 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Kadoy.CrimeNet.Models.Missions;
 using Kadoy.CrimeNet.Pools;
 using Newtonsoft.Json;
@@ -11,9 +10,13 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Kadoy.CrimeNet.Missions.Bubble {
-  public class MissionBubbleFabricBehaviour : MonoBehaviour {
+  public interface IMissionFabric {
+    void Continue();
+    void Stop();
+  }
+
+  public class MissionBubbleFabricBehaviour : MonoBehaviour, IMissionFabric {
     private const string MissionPath = "CrimeNet/Missions";
-    private const float NeighborRadius = 0.5f;
 
     private static readonly (float min, float max) DelayRange = (2f, 5f);
 
@@ -23,85 +26,80 @@ namespace Kadoy.CrimeNet.Missions.Bubble {
     [SerializeField]
     private MissionBubbleBehaviour missionBubblePrefab;
 
-    [Header("BOUNDS")]
+    [Space]
     [SerializeField]
-    private Collider2D screenBounds;
-
-    [SerializeField]
-    private Collider2D mapBounds;
+    private CrimeNetMapBehaviour mapBehaviour;
 
     private ObjectPool<MissionBubbleBehaviour> missionPool;
     private ISubject<MissionBubbleBehaviour> missionSubject;
-    private CancellationTokenSource cancellationTokenSource;
+    private CompositeDisposable disposable;
+    private List<InnerMissionInfo> missionInfos;
 
     private void OnDisable() {
-      cancellationTokenSource?.Cancel();
+      disposable?.Clear();
     }
 
     public IObservable<MissionBubbleBehaviour> Execute() {
       var missionAsset = Resources.Load<TextAsset>(MissionPath);
       var missionBase = JsonConvert.DeserializeObject<InnerMissionBase>(missionAsset.text);
-      
+
       missionSubject = new ReplaySubject<MissionBubbleBehaviour>();
       missionPool = new EntityPool<MissionBubbleBehaviour>(missionBubblePrefab, root);
+      disposable = new CompositeDisposable();
+      missionInfos = missionBase.Missions.ToList();
 
-      StartFabric(missionBase.Missions);
+      StartFabric();
 
       return missionSubject;
     }
 
-    private async void StartFabric(InnerMissionInfo[] missions) {
-      cancellationTokenSource = new CancellationTokenSource();
+    public void Continue() {
+      StartFabric();
+    }
 
-      foreach (var missionInfo in missions) {
-        var mission = CreateMission(missionInfo);
-        var delay = Random.Range(DelayRange.min, DelayRange.max);
-        var delaySpan = TimeSpan.FromSeconds(delay);
+    public void Stop() {
+      disposable?.Clear();
+    }
 
-        missionSubject?.OnNext(mission);
+    private void StartFabric() {
+      var delay = Random.Range(DelayRange.min, DelayRange.max);
+      var delaySpan = TimeSpan.FromSeconds(delay);
 
-        await Task.Delay(delaySpan, cancellationTokenSource.Token);
-      }
+      Observable
+        .Timer(delaySpan)
+        .Subscribe(_ => {
+          var missionInfo = GetRandomInfo();
+          var mission = CreateMission(missionInfo);
+
+          missionSubject?.OnNext(mission);
+          disposable?.Clear();
+
+          StartFabric();
+        }).AddTo(disposable);
+    }
+
+    private InnerMissionInfo GetRandomInfo() {
+      var index = Random.Range(0, missionInfos.Count);
+      var mission = missionInfos[index];
+
+      missionInfos.RemoveAt(index);
+      
+      return mission;
     }
 
     private MissionBubbleBehaviour CreateMission(InnerMissionInfo missionInfo) {
       var mission = missionPool.Rent();
-      var position = GetRandomMapPosition();
-      var completeCallback = new Action(() => missionPool.Return(mission));
+      var position = mapBehaviour.GetRandomBubblePosition();
+      var completeCallback = new Action(() => {
+        missionPool.Return(mission);
+        missionInfos.Add(missionInfo);
+      });
 
       var args = new MissionBubbleBehaviour.MissionArgs(missionInfo, position, completeCallback);
 
       mission.Initialize(args);
 
       return mission;
-    }
-
-    private Vector2 GetRandomMapPosition() {
-      var bounds = screenBounds.bounds;
-      var width = bounds.size.x;
-      var height = bounds.size.y;
-      var screenOffset = new Vector2(width, height) * 0.5f;
-      var isComplete = false;
-      
-      Vector2 mapPosition;
-
-      do {
-        var randomPosition = new Vector2(Random.Range(0f, width), Random.Range(0f, height));
-        
-        mapPosition = randomPosition - screenOffset;
-
-        var isOverlap = mapBounds.OverlapPoint(mapPosition);
-        var isNeighborFree = Physics2D
-          .OverlapCircleAll(mapPosition, NeighborRadius)
-          .Select(x => x.GetComponent<MissionBubbleBehaviour>())
-          .All(x => x == null);
-
-        if (isOverlap && isNeighborFree) {
-          isComplete = true;
-        }
-      } while (!isComplete);
-
-      return mapPosition;
     }
   }
 }

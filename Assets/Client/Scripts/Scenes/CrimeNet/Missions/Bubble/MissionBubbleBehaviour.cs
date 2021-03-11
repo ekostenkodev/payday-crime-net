@@ -1,9 +1,11 @@
 ﻿using System;
 using DG.Tweening;
 using Kadoy.CrimeNet.Models.Missions;
+using Kadoy.CrimeNet.Utils;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Kadoy.CrimeNet.Missions.Bubble {
   public class MissionBubbleBehaviour : MonoBehaviour {
@@ -18,9 +20,9 @@ namespace Kadoy.CrimeNet.Missions.Bubble {
         OnComplete = onComplete;
       }
     }
-    
+
     [SerializeField]
-    private Collider2D interactableZone;
+    private PointHandlerBehaviour interactableZone;
 
     [Space]
     [SerializeField]
@@ -31,41 +33,40 @@ namespace Kadoy.CrimeNet.Missions.Bubble {
 
     private Action onComplete;
     private Transform selfTransform;
-    private readonly CompositeDisposable disposables = new CompositeDisposable();
-    
+
     public event Action<MissionBubbleBehaviour> PointEnter;
     public event Action<MissionBubbleBehaviour> PointExit;
     public event Action<MissionBubbleBehaviour> PointDown;
     public event Action<MissionBubbleBehaviour> Complete;
 
-    public Transform Root => selfTransform ?? (selfTransform = transform); 
-    public IMissionTimer Timer => timerBehaviour; 
+    public Transform Root => selfTransform ?? (selfTransform = transform);
+    public IMissionTimer Timer => timerBehaviour;
 
     private void OnEnable() {
       timerBehaviour.OnComplete += OnTimerComplete;
+
+      interactableZone.Click += OnPointClick;
+      interactableZone.Enter += OnPointEnter;
+      interactableZone.Exit += OnPointExit;
     }
 
     private void OnDisable() {
-      disposables.Clear();
-
       timerBehaviour.OnComplete -= OnTimerComplete;
+      
+      interactableZone.Click -= OnPointClick;
+      interactableZone.Enter -= OnPointEnter;
+      interactableZone.Exit -= OnPointExit;
     }
 
     public void Initialize(MissionArgs args) {
       onComplete = args.OnComplete;
-      
+
       Root.position = args.Position;
       Root.localScale = Vector3.one;
       Root.name = args.MissionInfo.Id;
 
       informationBehaviour.Initialize(args.MissionInfo);
       timerBehaviour.Reset(args.MissionInfo.Duration);
-
-      disposables.Clear();
-      
-      interactableZone.OnMouseExitAsObservable().Subscribe(OnPointExit).AddTo(disposables);
-      interactableZone.OnMouseEnterAsObservable().Subscribe(OnPointEnter).AddTo(disposables);
-      interactableZone.OnMouseDownAsObservable().Subscribe(OnPointDown).AddTo(disposables);
     }
 
     private void OnComplete() {
@@ -73,30 +74,28 @@ namespace Kadoy.CrimeNet.Missions.Bubble {
         .DOScaleX(0, 0.5f)
         .OnComplete(() => {
           Complete?.Invoke(this);
-          
+
           onComplete?.Invoke();
         });
     }
 
     private void OnTimerComplete() {
-      disposables.Clear();
-
       informationBehaviour.Close().OnComplete(OnComplete);
     }
 
-    private void OnPointEnter(Unit unit) {
+    private void OnPointEnter(PointerEventData eventData) {
       informationBehaviour.ShowDetailedInfo();
-      
+
       PointEnter?.Invoke(this);
     }
 
-    private void OnPointExit(Unit unit) {
+    private void OnPointExit(PointerEventData eventData) {
       informationBehaviour.HideDetailedInfo();
-      
+
       PointExit?.Invoke(this);
     }
 
-    private void OnPointDown(Unit unit) {
+    private void OnPointClick(PointerEventData eventData) {
       PointDown?.Invoke(this);
     }
   }

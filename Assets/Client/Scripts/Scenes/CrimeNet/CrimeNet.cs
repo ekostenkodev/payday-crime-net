@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Kadoy.CrimeNet.Controllers;
 using Kadoy.CrimeNet.Missions.Bubble;
+using Kadoy.CrimeNet.Missions.UI;
 using UniRx;
 using UnityEngine;
 
@@ -8,17 +9,25 @@ namespace Kadoy.CrimeNet {
   public class CrimeNet : MonoBehaviour {
     [SerializeField]
     private MissionBubbleFabricBehaviour missionBubbleFabric;
+
+    [SerializeField]
+    private MissionInformationBehaviour informationBehaviour;
     
     private readonly List<MissionBubbleBehaviour> activeMissions = new List<MissionBubbleBehaviour>();
 
     private MissionBubbleFadeController fadeController;
+    private MissionBubbleInfoController infoController;
 
     private void OnDisable() {
       RemoveMissionRange(activeMissions.ToArray());
+      
+      fadeController.Dispose();
+      infoController.Dispose();
     }
 
     private void Awake() {
       fadeController = new MissionBubbleFadeController(activeMissions);
+      infoController = new MissionBubbleInfoController(activeMissions, informationBehaviour, missionBubbleFabric);
       
       missionBubbleFabric
         .Execute()
@@ -26,24 +35,26 @@ namespace Kadoy.CrimeNet {
         .AddTo(this);
     }
 
-    private void AddMission(MissionBubbleBehaviour missionBubble) {
-      activeMissions.Add(missionBubble);
-      fadeController.Add(missionBubble);
+    private void AddMission(MissionBubbleBehaviour mission) {
+      activeMissions.Add(mission);
+      fadeController.Add(mission);
+      infoController.Add(mission);
           
-      missionBubble.Complete += OnMissionComplete;
+      mission.Complete += OnMissionComplete;
     }
     
     private void RemoveMissionRange(params MissionBubbleBehaviour[] missions) {
       foreach (var mission in missions) {
-        activeMissions.Remove(mission);
         fadeController.Remove(mission);
+        infoController.Remove(mission);
+        activeMissions.Remove(mission);
 
         mission.Complete -= OnMissionComplete;
       }
     }
     
-    private void OnMissionComplete(MissionBubbleBehaviour missionBubble) {
-      RemoveMissionRange(missionBubble);
+    private void OnMissionComplete(MissionBubbleBehaviour mission) {
+      RemoveMissionRange(mission);
     }
   }
 }

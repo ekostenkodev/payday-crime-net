@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using Kadoy.CrimeNet.Missions.Bubble;
 using Kadoy.CrimeNet.Utils;
 
 namespace Kadoy.CrimeNet.Controllers {
-  public class MissionBubbleFadeController {
+  public class MissionBubbleFadeController : IDisposable {
     private const float OutValue = 0.4f;
     private const float FadeDuration = 0.5f;
     
@@ -61,6 +62,13 @@ namespace Kadoy.CrimeNet.Controllers {
         }
         
         sequence.Join(Fade.DO(activeMission.Root, endValue, FadeDuration));
+      }
+    }
+
+    public void Dispose() {
+      foreach (var mission in activeMissions) {
+        mission.PointEnter -= OnMissionEnter;
+        mission.PointExit -= OnMissionExit;
       }
     }
   }
